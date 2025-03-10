@@ -1,9 +1,5 @@
+# 🚀 Single Stage Dockerfile
 
-
-```markdown
-🚀 Single Stage Dockerfile
-
-```
 ```dockerfile
 
 FROM node:14
@@ -28,7 +24,7 @@ CMD ["npm", "start"]
 ```
 
 
-🌟 Multi-Stage Dockerfile
+# 🌟 Multi-Stage Dockerfile
 
 Stage 1: Build
 
@@ -64,7 +60,7 @@ CMD ["npm", "start"]
 
 Stage 1: Build
 
-    - `FROM node:14 AS builder`: Uses the Node.js image and names this stage `builder`.
+    - `FROM node:14 AS builder`: Uses the Node.js image and names this stage `builder`
     - `WORKDIR /app`: Sets the working directory.
     - `COPY package*.json .`: Copies `package.json` and `package-lock.json`.
     - `RUN npm install`: Installs dependencies.
@@ -75,7 +71,8 @@ Stage 2: Run
 
     - `FROM node:14`: Uses the Node.js image again for the runtime environment.
     - `WORKDIR /app`: Sets the working directory.
-    - `COPY --from=builder /app .`: Copies the built application from the builder stage.
+    - `COPY --from=builder /app .`
+       Copies the built application from the builder stage.
     - `EXPOSE 3000`: Exposes port 3000.
     - `CMD ["npm", "start"]`: Runs the application.
 
@@ -96,13 +93,13 @@ Here's a breakdown of your commands:
 9. `pm2 restart seedFE`: Restart the `seedFE` process.
 
 
-
+#
 📉 Why Multi-Stage Builds Reduce Image Size
 
 Separation of Build and Runtime Environments
 
-    - Build Stage: This stage includes all the tools and dependencies needed to build the application. This often includes compilers, build tools, and other development dependencies that are not needed at runtime.
-    - Runtime Stage: This stage only includes the files and dependencies required to run the application. It does not include any of the build tools or development dependencies.
+   - Build Stage: This stage includes all the tools and dependencies needed to build the application. This often includes compilers, build tools, and other development dependencies that are not needed at runtime.
+  - Runtime Stage: This stage only includes the files and dependencies required to run the application. It does not include any of the build tools or development dependencies.
 
 Copying Only Necessary Files
 
@@ -119,13 +116,14 @@ Stage 2: Run
 
     - Base Image: `node:14` (includes Node.js and npm)
     - Built Application: Copied from the builder stage
-    - Excluded: Build tools, development dependencies, and any temporary files created during the build process
+    - Excluded: Build tools, development dependencies and 
+    any temporary files created during the build process
 
 Benefits of Multi-Stage Builds
 
-    - Smaller Image Size: By excluding unnecessary files and dependencies, the final image is significantly smaller. This reduces storage costs and improves deployment times.
-    - Improved Security: A smaller image with fewer components reduces the attack surface, making the application more secure.
-    - Efficiency: Smaller images are faster to transfer over the network and quicker to start up, leading to more efficient deployments and scaling.
+   - Smaller Image Size: By excluding unnecessary files and dependencies, the final image is significantly smaller. This reduces storage costs and improves deployment times.
+   - Improved Security: A smaller image with fewer components reduces the attack surface, making the application more secure.
+   - Efficiency: Smaller images are faster to transfer over the network and quicker to start up, leading to more efficient deployments and scaling.
 
 
 
