@@ -279,7 +279,6 @@ docker push my-node-app:1.0
 ```
 This pushes the `my-node-app` image with the tag `1.0` to the configured Docker registry.
 
-    ---
 
 Related Combinations
 
@@ -313,4 +312,3 @@ Summary
     - `docker build`: Creates a Docker image from a Dockerfile.
     - `docker pull`: Downloads a Docker image from a registry.
     - `docker push`: Uploads a Docker image to a registry.
-```
