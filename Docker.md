@@ -131,7 +131,7 @@ Benefits of Multi-Stage Builds
 
 🔍 Difference Between RUN and CMD Commands
 
-RUN Command
+# RUN Command
 
 Purpose: The `RUN` command is used to execute commands in the container during the image build process. Each `RUN` command creates a new layer in the Docker image.
 
@@ -147,7 +147,7 @@ Key Points:
     - They are used to install software packages, set up the environment, and perform any necessary build steps.
     - The results of `RUN` commands are saved in the Docker image as layers.
 
-CMD Command
+# CMD Command
 
 Purpose: The `CMD` command specifies the default command to run when a container is started from the image. Unlike `RUN`, it does not execute at build time but at runtime when the container is launched.
 
@@ -167,7 +167,7 @@ Key Points:
 
 🌐 Concepts of EXPOSE and PUBLISH
 
-EXPOSE Command
+# EXPOSE Command
 
 Purpose: The `EXPOSE` command in a Dockerfile is used to inform Docker that the container will listen on the specified network ports at runtime. It does not actually publish the port to the host machine; it just serves as documentation and metadata.
 
@@ -307,7 +307,6 @@ docker build --pull -t my-node-app:1.0 .
 ```
 The `--pull` flag ensures that Docker pulls the latest version of the base image before building.
 
-    ---
 
 Summary
 
